@@ -1,0 +1,11 @@
+.card__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card__image {
+    height: 328px;
+    width: 328px;
+    border-radius: 10px;
+  }
