@@ -15,10 +15,8 @@ const weatherOptions = [
   { url: "/images/weather/night-cloudy.svg", day: false, type: "cloudy" },
 ];
 
-const WeatherCard = ({ day, type, weatherTemp = '' }) => {
-  console.log("WeatherCard");
+const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   const imageSrc = weatherOptions.filter((i) => {
-    console.log(i);
     return i.day === day && i.type === type;
   });
 

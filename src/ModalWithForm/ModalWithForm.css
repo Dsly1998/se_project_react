@@ -9,7 +9,6 @@
   align-self: center;
   background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.3);
-  display: none;
 }
 
 .modal__content {
@@ -20,5 +19,4 @@
   height: 436px;
   background: #ffffff;
   border-radius: 20px;
-  display: none;
 }

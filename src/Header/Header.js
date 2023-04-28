@@ -1,6 +1,6 @@
 import "./Header.css";
 
-const Header = ({ onCreateModal }) => {
+const Header = ({ onCreateModal, temp }) => {
 
   return (
     <header className="header">
