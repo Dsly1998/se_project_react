@@ -36,3 +36,7 @@
   background-color: transparent;
   border: none;
 }
+
+.header__button:hover {
+  cursor: pointer;
+}

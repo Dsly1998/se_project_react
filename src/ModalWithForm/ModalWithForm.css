@@ -34,7 +34,7 @@
   color: #000000;
   display: flex;
   flex-direction: column;
-  padding-bottom: 24px;
+  margin-bottom: 38px;
 }
 
 .modal__input {
@@ -58,17 +58,6 @@
   cursor: pointer;
 }
 
-.modal__options {
-  width: 173px;
-  height: 20px;
-  font-family: "Cabinet Grotesk";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  color: black;
-}
-
 ::placeholder {
   width: 42px;
   height: 20px;
@@ -80,31 +69,53 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-.modal__add-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 16px;
-  gap: 8px;
-  width: 124px;
-  height: 36px;
-  background: #000000;
-  border-radius: 4px;
-  color: #ffffff;
-}
-
 .modal__add-button:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.modal__radio-input:checked {
-  background-color: #000000;
+.modal__radio-input {
+  accent-color: #000000;
 }
 
-.modal__radio-input:checked + label {
-  color: black;
+.modal__label-radio {
+  width: 26px;
+  height: 20px;
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 
+.modal__label-radio:checked {
+  color: #000000;
+}
+
+.modal__radios {
+  margin-bottom: 8px;
+}
+
+.modal__add-button {
+  width: 128px;
+  height: 36px;
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  border-radius: 4px;
+  color: #ffffff;
+  margin-top: 32px;
+}
+
+#radio-options{
+  margin-bottom: 18px;
+}

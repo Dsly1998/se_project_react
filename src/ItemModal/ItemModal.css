@@ -6,7 +6,9 @@
   position: absolute;
   top: 10%;
   right: 50;
-
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__card-name {
@@ -20,13 +22,21 @@
   color: #000000;
   padding-left: 30px;
   padding-top: 8px;
+  padding-bottom: 10px;
 }
 
-.modal__image-preview {
-  width: 490px;
-  height: 680px;
-  overflow: hidden;
-  display: none;
+.modal__card-description {
+  width: 350px;
+  height: 24px;
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+  padding-left: 30px;
+  padding-top: 8px;
+  padding-bottom: 32px;
 }
 
 .modal__preview-close {
@@ -34,5 +44,21 @@
   background-color: transparent;
   position: relative;
   top: 10px;
-  left: 466px;
+  left: 230px;
+  z-index: 1;
+}
+
+.modal__preview-close:hover {
+  cursor: pointer;
+}
+
+#image-preview {
+  position: relative;
+  bottom: 24px;
+  width: 498px;
+  height: 665px;
+  overflow: hidden;
+  border-radius: 16px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }

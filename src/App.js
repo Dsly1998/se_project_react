@@ -62,7 +62,7 @@ function App() {
               maxLength="30"
             />
           </label>
-          <div classname="modal__options">Select the weather type:</div>
+          <div id="radio-options" classname="modal__options">Select the weather type:</div>
           <div>
             <div className="modal__radios">
               <input
@@ -71,16 +71,16 @@ function App() {
                 id="hot"
                 value="hot"
               />
-              <label>Hot</label>
+              <label className="modal__label-radio">Hot</label>
             </div>
-            <div>
+            <div className="modal__radios">
               <input
                 className="modal__radio-input"
                 type="radio"
                 id="warm"
                 value="warm"
               />
-              <label>Warm</label>
+              <label className="modal__label-radio">Warm</label>
             </div>
             <div>
               <input
@@ -89,7 +89,7 @@ function App() {
                 id="cold"
                 value="cold"
               />
-              <label>Cold</label>
+              <label className="modal__label-radio">Cold</label>
             </div>
           </div>
         </ModalWithForm>
