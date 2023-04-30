@@ -19,12 +19,13 @@ const Main = ({ weatherTemp, onSelectCard }) => {
     return item.weather.toLowerCase() === weatherType;
   });
 
-
   return (
     <main className="main">
-      <WeatherCard day={false} type="rainy" weatherTemp={weatherTemp} />
+      <WeatherCard day={true} type="cloud" weatherTemp={weatherTemp} />
+      <p className="main__text">
+        Today is {weatherTemp}° F / You may want to wear:
+      </p>
       <section className="main__cards" id="card-section">
-        Today is {weatherTemp} / You may want to wear:
         <div className="main__items">
           {filteredCards.map((x) => {
             return <ItemCard x={x} onSelectCard={onSelectCard} />;

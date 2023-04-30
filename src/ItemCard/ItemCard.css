@@ -1,11 +1,25 @@
 .card__text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .card__image {
-    height: 328px;
-    width: 328px;
-    border-radius: 10px;
-  }
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 12px;
+  gap: 8px;
+  position: relative;
+  width: 82px;
+  height: 24px;
+  left: 115px;
+  bottom: 300px;
+}
+
+.card__image {
+  height: 328px;
+  width: 328px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: end;
+  background: #E9E9E9;
+border: 1px solid rgba(0, 0, 0, 0.3);
+}

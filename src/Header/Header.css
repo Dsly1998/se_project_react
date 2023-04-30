@@ -5,7 +5,13 @@
   padding: 0 40px;
   max-width: 1360px;
   margin: auto;
-  margin-top: 32px;
+  padding-top: 32px;
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #000000;
 }
 
 .header__left {
@@ -18,4 +24,15 @@
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.header__button {
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
 }

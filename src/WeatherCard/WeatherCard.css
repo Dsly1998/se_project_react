@@ -1,14 +1,26 @@
 .weather {
-  position: relative;
-  min-height: 80px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0 40px;
+  max-width: 1360px;
+  margin: auto;
+  margin-top: 32px;
 }
 
 .weather__info {
   position: relative;
-  top: 60px;
-  left: 16px;
+  top: 0;
+  left: 85px;
   color: #fff;
   font-size: 36px;
+  font-family: "Cabinet Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  width: 69px;
+  height: 40px;
 }
 
 .weather__bar {
@@ -16,6 +28,6 @@
 }
 
 .main {
-  padding: 0 40px;
-  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
 }

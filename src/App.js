@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
@@ -10,10 +9,9 @@ import { getForcastWeather } from "./util/weatherApi";
 import { parseWeatherData } from "./util/weatherApi";
 
 function App() {
-  const weatherTemp = "";
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-  const [temp, setTemp, ] = useState(0)
+  const [temp, setTemp] = useState(0);
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -31,38 +29,66 @@ function App() {
   useEffect(() => {
     getForcastWeather().then((data) => {
       const temperature = parseWeatherData(data);
-      setTemp(temperature)
+      setTemp(temperature);
     });
   }, []);
 
-
   return (
-    <div>
+    <div className="app">
       <Header onCreateModal={handleCreateModal} />
       <Main weatherTemp={temp} onSelectCard={handleSelectedCard} />
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm title="New Garment" onClose={handleCloseModal}>
-          <label>
+          <label className="modal__label">
             Name
-            <input type="text" name="name" minLength="1" maxLength="30" />
+            <input
+              className="modal__input"
+              type="text"
+              name="name"
+              minLength="1"
+              maxLength="30"
+              placeholder="Name"
+            />
           </label>
-          <label>
+          <label className="modal__label">
             Image
-            <input type="url" name="link" minLength="1" maxLength="30" />
+            <input
+              className="modal__input"
+              placeholder="Image URL"
+              type="url"
+              name="link"
+              minLength="1"
+              maxLength="30"
+            />
           </label>
-          <p>Select the weather type:</p>
+          <div classname="modal__options">Select the weather type:</div>
           <div>
-            <div>
-              <input type="radio" id="hot" value="hot" />
+            <div className="modal__radios">
+              <input
+                className="modal__radio-input"
+                type="radio"
+                id="hot"
+                value="hot"
+              />
               <label>Hot</label>
             </div>
             <div>
-              <input type="radio" id="warm" value="warm" />
+              <input
+                className="modal__radio-input"
+                type="radio"
+                id="warm"
+                value="warm"
+              />
               <label>Warm</label>
             </div>
             <div>
-              <input type="radio" id="cold" value="cold" />
+              <input
+                className="modal__radio-input"
+                type="radio"
+                id="cold"
+                value="cold"
+              />
               <label>Cold</label>
             </div>
           </div>

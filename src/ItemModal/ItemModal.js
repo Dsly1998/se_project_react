@@ -1,15 +1,22 @@
-const ItemModal = ({ selectedCard, onClose }) => {
-  console.log("ItemModal");
+import "./ItemModal.css";
 
+const ItemModal = ({ selectedCard, onClose }) => {
   return (
-    <div className={`modal`}>
-      <div className="modal__content">
-      <button type="button" onClick={onClose}>
-          Close
+    <div className={`modal`} >
+      <div className="modal__content-preview">
+        <button
+          className="modal__preview-close"
+          type="button"
+          onClick={onClose}
+        >
+          <img src="/images/closex.svg" />
         </button>
-        <img src={selectedCard.link} />
-        <div>{selectedCard.name}</div>
-        <div> Weather type: {selectedCard.weather}</div>
+        <img classname="modal__image-preview" src={selectedCard.link} />
+        <div className="modal__card-name">{selectedCard.name}</div>
+        <div className="modal__card-name">
+          {" "}
+          Weather type: {selectedCard.weather}
+        </div>
       </div>
     </div>
   );
