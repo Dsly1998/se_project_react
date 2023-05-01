@@ -5,8 +5,8 @@ import Footer from "./components/Footer/Footer";
 import ModalWithForm from "./components/ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
 import ItemModal from "./components/ItemModal/ItemModal";
-import { getForcastWeather } from "./components/util/weatherApi";
-import { parseWeatherData } from "./components/util/weatherApi";
+import { getForcastWeather } from "./utils/weatherApi";
+import { parseWeatherData } from "./utils/weatherApi";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -62,7 +62,9 @@ function App() {
               maxLength="30"
             />
           </label>
-          <div id="radio-options" classname="modal__options">Select the weather type:</div>
+          <div id="radio-options" classname="modal__options">
+            Select the weather type:
+          </div>
           <div>
             <div className="modal__radios">
               <input
