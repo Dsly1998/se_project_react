@@ -9,7 +9,7 @@ const ItemModal = ({ selectedCard, onClose }) => {
           type="button"
           onClick={onClose}
         >
-          <img src="/images/closex.svg" />
+          <img src={require("../../images/Closex.svg").default} />
         </button>
         <img
           classname="modal__image-preview"
