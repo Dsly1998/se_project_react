@@ -1,4 +1,5 @@
 import "./ItemModal.css";
+import CloseIcon from "../../images/Closex.svg";
 
 const ItemModal = ({ selectedCard, onClose }) => {
   return (
@@ -9,10 +10,10 @@ const ItemModal = ({ selectedCard, onClose }) => {
           type="button"
           onClick={onClose}
         >
-          <img src={require("../../images/Closex.svg").default} />
+          <img src={CloseIcon} />
         </button>
         <img
-          classname="modal__image-preview"
+          className="modal__image-preview"
           id="image-preview"
           src={selectedCard.link}
         />

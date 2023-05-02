@@ -25,10 +25,16 @@ const Main = ({ weatherTemp, onSelectCard }) => {
       <p className="main__text">
         Today is {weatherTemp}° F / You may want to wear:
       </p>
-      <section className="main__cards" id="card-section">
+      <section className="main__cards">
         <div className="main__items">
-          {filteredCards.map((x) => {
-            return <ItemCard x={x} onSelectCard={onSelectCard} />;
+          {filteredCards.map((item) => {
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onSelectCard={onSelectCard}
+              />
+            );
           })}
         </div>
       </section>
