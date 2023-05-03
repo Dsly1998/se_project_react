@@ -27,10 +27,14 @@ function App() {
   };
 
   useEffect(() => {
-    getForcastWeather().then((data) => {
-      const temperature = parseWeatherData(data);
-      setTemp(temperature);
-    });
+    getForcastWeather()
+      .then((data) => {
+        const temperature = parseWeatherData(data);
+        setTemp(temperature);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -62,7 +66,7 @@ function App() {
               maxLength="30"
             />
           </label>
-          <div id="radio-options" classname="modal__options">
+          <div id="radio-options" className="modal__options">
             Select the weather type:
           </div>
           <div>

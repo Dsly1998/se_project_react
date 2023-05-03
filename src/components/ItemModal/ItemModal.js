@@ -10,7 +10,7 @@ const ItemModal = ({ selectedCard, onClose }) => {
           type="button"
           onClick={onClose}
         >
-          <img src={CloseIcon} />
+          <img src={CloseIcon}  alt="close Icon"/>
         </button>
         <img
           className="modal__image-preview"
