@@ -17,10 +17,11 @@
   padding: 40px;
   padding-top: 0;
   margin: auto;
+  width: -webkit-fill-available;
 }
 
 .main__text {
-  width: 1360px;
+  max-width: 1360px;
   height: 25px;
   font-family: "Cabinet Grotesk";
   font-style: normal;
@@ -29,8 +30,9 @@
   line-height: 25px;
   color: #000000;
   display: flex;
-  justify-content: start;
-  margin: auto;
+  justify-content:start;
   padding: 40px;
   padding-bottom: 0;
+  width:  -webkit-fill-available;
+  margin: auto;
 }
