@@ -1,0 +1,48 @@
+.clothesSection {
+  padding-left: 20%;
+  gap: 10px;
+}
+
+
+
+.clothesSection__header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 60px;
+  padding-bottom: 14px;
+  padding-top: 55px;
+}
+
+.clothesSection__card {
+  width: 90px;
+}
+
+.clothesSection__card-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.clothesSection__title {
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  padding-right: 15px;
+}
+
+.clothesSection__button {
+  border: none;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: black;
+  opacity: 60%;
+}

@@ -40,3 +40,19 @@
 .header__button:hover {
   cursor: pointer;
 }
+
+.header__name {
+  color: #000000;
+  text-decoration: none;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.header__avatar {
+  height: 40px;
+  width: 40px;
+}
