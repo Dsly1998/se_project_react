@@ -73,7 +73,7 @@ function App() {
           </Route>
 
           <Route path="/profile">
-            <Profile
+            <Profile 
               onSelectCard={handleItemCard}
               handleActiveCreateModal={handleActiveCreateModal}
               clothingItems={clothingItems}

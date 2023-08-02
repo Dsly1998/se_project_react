@@ -1,10 +1,7 @@
 .sideBar {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  padding: 0 40px;
   max-width: 1360px;
-  margin: auto;
   padding-top: 32px;
 }
 
