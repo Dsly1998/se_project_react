@@ -10,7 +10,7 @@ export const removeItems = (selectedCard) => {
   return deleteItems;
 };
 
-export const fetchItems = () => {
+export const getItems = () => {
   const getItems = fetch(`${baseUrl}/items`, {
     method: "GET",
     headers: {

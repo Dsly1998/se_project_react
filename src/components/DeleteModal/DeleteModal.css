@@ -1,4 +1,4 @@
-.delete__confirmation-modal {
+.delete__modal {
   display: flex;
   justify-content: space-around;
   padding: 0;
@@ -7,7 +7,6 @@
   margin: auto;
   border-radius: 20px;
   position: relative;
-
   font-family: "Familjen Grotesk", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -17,7 +16,7 @@
   background-color: #fff;
 }
 
-.delete__confirmation-button_exit {
+.delete__modal-button_exit {
   background-image: url(../../images/Close.svg);
   position: absolute;
   top: 20px;
@@ -27,23 +26,23 @@
   border: none;
 }
 
-.delete__confirmation-button_exit:hover {
+.delete__modal-button_exit:hover {
   cursor: pointer;
 }
 
-.delete__confirmation-wrapper {
+.delete__modal-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: auto;
 }
 
-.delete__confirmation-notification {
+.delete__modal-text {
   text-align: center;
   margin: 0;
 }
 
-.delete__confirmation-button_yes {
+.delete__modal-button_confirm {
   border: none;
   margin: 40px 0 24px 0;
   font-family: "Familjen Grotesk", sans-serif;
@@ -55,11 +54,11 @@
   background-color: #fff;
 }
 
-.delete__confirmation-button_yes:hover {
+.delete__modal-button_confirm:hover {
   cursor: pointer;
 }
 
-.delete__confirmation-button_cancel {
+.delete__modal-button_cancel {
   border: none;
   font-family: "Familjen Grotesk", sans-serif;
   font-style: normal;
@@ -70,6 +69,6 @@
   background-color: #fff;
 }
 
-.delete__confirmation-button_cancel:hover {
+.delete__modal-button_cancel:hover {
   cursor: pointer;
 }

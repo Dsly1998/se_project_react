@@ -10,7 +10,7 @@ import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUni
 import { Switch, Route } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { fetchItems, loadItems, removeItems } from "../utils/Api";
+import { getItems, loadItems, removeItems } from "../utils/Api";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
@@ -74,7 +74,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetchItems()
+    getItems()
       .then((data) => {
         setClothingItems(data);
       })
