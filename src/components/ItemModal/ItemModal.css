@@ -62,3 +62,23 @@
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+.modal__delete-button{
+font-family: Cabinet Grotesk;
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+letter-spacing: 0em;
+text-align: left;
+color:#FF4D00;
+border: none;
+background-color: transparent;
+position: relative;
+top: 10px;
+left: 350px;
+height:0;
+}
+
+.modal__delete-button:hover{
+cursor: pointer;
+}
