@@ -1,14 +1,11 @@
 import React from "react";
 import { defaultClothingItems } from "../utils/contants";
-import "./ClothesSection.css"
-import ItemCard from "../components/ItemCard/ItemCard";
+import "./ClothesSection.css";
+import ItemCard from "../ItemCard/ItemCard";
 
-const ClothesSection = ({
-  onSelectCard,
-  handleActiveCreateModal,
-}) => {
+const ClothesSection = ({ onSelectCard, handleActiveCreateModal }) => {
   const filteredCards = defaultClothingItems.filter((item) => {
-    return item.weather.toLowerCase()
+    return item.weather.toLowerCase();
   });
   return (
     <section className="clothesSection">
@@ -24,7 +21,7 @@ const ClothesSection = ({
       </div>
       <div className="clothesSection__cards">
         <div className="clothesSection__card-items">
-        {filteredCards.map((item) => {
+          {filteredCards.map((item) => {
             return (
               <ItemCard
                 key={item._id}
