@@ -1,8 +1,8 @@
-import { defaultClothingItems } from "../../../utils/contants";
+import { defaultClothingItems } from "../utils/contants";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { useMemo, useContext } from "react";
-import { CurrentTemperatureUnitContext } from "../../Contexts/CurrentTemperatureUnitContext";
+import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
 const Main = ({ weatherTemp, onSelectCard }) => {

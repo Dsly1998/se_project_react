@@ -4,13 +4,14 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
-import { getForcastWeather } from "../../../utils/weatherApi";
-import { parseWeatherData } from "../../../utils/weatherApi";
-import { CurrentTemperatureUnitContext } from "../../Contexts/CurrentTemperatureUnitContext";
+import { getForcastWeather } from "../utils/weatherApi";
+import { parseWeatherData } from "../utils/weatherApi";
+import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { fetchItems, loadItems, removeItems } from "../../../utils/Api";
+import { fetchItems, loadItems, removeItems } from "../utils/Api";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -126,11 +127,11 @@ function App() {
             handleDeleteButton={handleDeleteButton}
           />
         )}
-        {activeModal === "delete" && (
-          <ItemDeleteModal
-            selectedCard={selectedCard}
+        {activeModal === "confirmation-opened" && (
+          <DeleteModal
             onClose={handleCloseModal}
-            handleDeleteButton={handleDeleteButton}
+            card={selectedCard}
+            handleDeleteCard={handleDeleteButton}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
