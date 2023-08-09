@@ -1,5 +1,5 @@
 import React from "react";
-import { defaultClothingItems } from "../utils/contants";
+import { defaultClothingItems } from "../../../utils/contants";
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
