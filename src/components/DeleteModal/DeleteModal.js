@@ -14,7 +14,7 @@ const DeleteModal = ({ onClose, card, handleDeleteButton }) => {
         <div className="delete__modal-wrapper">
           <p className="delete__modal-text">
             Are you sure you want to delete this item? <br />
-            This action is irreversible {card._id}
+            This action is irreversible
           </p>
           <button
             className="delete__modal-button_confirm"

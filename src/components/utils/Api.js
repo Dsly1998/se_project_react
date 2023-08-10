@@ -3,7 +3,7 @@ const baseUrl = "https://my-json-server.typicode.com/Dsly1998/se_project_react";
 
 export const removeItems = (selectedCard) => {
   const deleteItems = fetch(`${baseUrl}/items/${selectedCard}`, {
-    method: "DELETE",
+    method: 'DELETE',
     headers: {
       "Content-Type": "application/json",
     },

@@ -45,9 +45,9 @@ function App() {
       });
   };
 
-  const handleItemCard = (card) => {
+  const handleItemCard = (selectedCard) => {
     setActiveModal("preview");
-    setSelectedCard(card);
+    setSelectedCard(selectedCard);
   };
 
   const handleActiveCreateModal = () => {
@@ -100,7 +100,6 @@ function App() {
       });
   }, []);
 
-  console.log(selectedCard);
   return (
     <div className="app">
       <CurrentTemperatureUnitContext.Provider
