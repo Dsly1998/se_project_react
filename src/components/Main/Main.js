@@ -1,22 +1,41 @@
-
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { useMemo, useContext } from "react";
+import { useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
 const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
   const { CurrentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const temp = weatherTemp?.temperature?.[CurrentTemperatureUnit] || 999;
-  const weatherType = useMemo(() => {
-    if (temp >= 86) {
+  const isFahrenheit =
+    CurrentTemperatureUnit === "F" || CurrentTemperatureUnit === undefined; // Set to true if CurrentTemperatureUnit is undefined
+  const tempInFahrenheit = weatherTemp?.temperature?.["F"] || 999;
+  const temp = isFahrenheit
+    ? tempInFahrenheit
+    : ((tempInFahrenheit - 32) * 5) / 9; // Convert to Celsius if needed
+
+  const getWeatherTypeFahrenheit = (tempF) => {
+    if (tempF >= 86) {
       return "hot";
-    } else if (temp >= 66 && temp <= 85) {
+    } else if (tempF >= 66 && tempF <= 85) {
       return "warm";
-    } else if (temp <= 65) {
+    } else if (tempF <= 65) {
       return "cold";
     }
-  }, [weatherTemp]);
+  };
+
+  const getWeatherTypeCelsius = (tempC) => {
+    if (tempC >= 30) {
+      return "hot";
+    } else if (tempC >= 19 && tempC <= 29) {
+      return "warm";
+    } else if (tempC <= 18) {
+      return "cold";
+    }
+  };
+
+  const weatherType = isFahrenheit
+    ? getWeatherTypeFahrenheit(tempInFahrenheit)
+    : getWeatherTypeCelsius(temp);
 
   const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
@@ -24,8 +43,16 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
 
   return (
     <main className="main">
-      <WeatherCard day={true} type="cloud" weatherTemp={temp} />
-      <p className="main__text">Today is {temp}° / You may want to wear:</p>
+      <WeatherCard
+        day={true}
+        type="cloud"
+        weatherTemp={tempInFahrenheit}
+        isFahrenheit={isFahrenheit}
+      />
+      <p className="main__text">
+        Today is {Math.round(temp)}
+        {isFahrenheit ? "°F" : "°C"} / You may want to wear:
+      </p>
       <section className="main__cards">
         <div className="main__items">
           {filteredCards.map((item) => {
