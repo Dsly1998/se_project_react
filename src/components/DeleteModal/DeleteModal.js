@@ -2,6 +2,7 @@ import React from "react";
 import "./DeleteModal.css";
 
 const DeleteModal = ({ onClose, card, handleDeleteButton }) => {
+  console.log(card);
   return (
     <section className="modal" onClick={onClose}>
       <div className="delete__modal">
@@ -13,13 +14,13 @@ const DeleteModal = ({ onClose, card, handleDeleteButton }) => {
         <div className="delete__modal-wrapper">
           <p className="delete__modal-text">
             Are you sure you want to delete this item? <br />
-            This action is irreversible
+            This action is irreversible {card._id}
           </p>
           <button
             className="delete__modal-button_confirm"
             type="button"
             onClick={() => {
-              handleDeleteButton(card.id);
+              handleDeleteButton(card._id);
             }}
           >
             Yes, delete item

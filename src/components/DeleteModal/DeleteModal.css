@@ -21,9 +21,10 @@
   position: absolute;
   top: 20px;
   right: 28px;
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border: none;
+  background-color: transparent;
 }
 
 .delete__modal-button_exit:hover {

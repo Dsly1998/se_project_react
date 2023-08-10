@@ -60,6 +60,7 @@ function App() {
   };
 
   const handleDeleteButton = (cardElement) => {
+    console.log(cardElement);
     removeItems(cardElement)
       .then(() => {
         const newClothingItems = clothingItems.filter((cards) => {
@@ -71,6 +72,11 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const handleDeleteConfirmationModal = (selectedCard) => {
+    setActiveModal("confirmation-opened");
+    setSelectedCard(selectedCard);
   };
 
   useEffect(() => {
@@ -93,6 +99,8 @@ function App() {
         console.log(error);
       });
   }, []);
+
+  console.log(selectedCard);
   return (
     <div className="app">
       <CurrentTemperatureUnitContext.Provider
@@ -101,7 +109,11 @@ function App() {
         <Header onCreateModal={handleCreateModal} />
         <Switch>
           <Route exact path="/">
-            <Main weatherTemp={temp} onSelectCard={handleSelectedCard} clothingItems={clothingItems} />
+            <Main
+              weatherTemp={temp}
+              onSelectCard={handleSelectedCard}
+              clothingItems={clothingItems}
+            />
           </Route>
 
           <Route path="/profile">
@@ -124,14 +136,14 @@ function App() {
           <ItemModal
             selectedCard={selectedCard}
             onClose={handleCloseModal}
-            handleDeleteButton={handleDeleteButton}
+            handleDeleteButton={handleDeleteConfirmationModal}
           />
         )}
         {activeModal === "confirmation-opened" && (
           <DeleteModal
             onClose={handleCloseModal}
             card={selectedCard}
-            handleDeleteCard={handleDeleteButton}
+            handleDeleteButton={handleDeleteButton}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

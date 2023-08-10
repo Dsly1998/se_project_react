@@ -1,8 +1,8 @@
 const baseUrl = "https://my-json-server.typicode.com/Dsly1998/se_project_react";
-// const baseUrl = 'http://localhost:3001'; 
+// const baseUrl = 'http://localhost:3001';
 
 export const removeItems = (selectedCard) => {
-  const deleteItems = fetch(`${baseUrl}/items/${selectedCard.id} `, {
+  const deleteItems = fetch(`${baseUrl}/items/${selectedCard}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export const loadItems = ({ name, link, weather }) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, link, weather }),
+    body: JSON.stringify({ id: 99, name, imageUrl:link, weather }),
   }).then(checkResponse);
 
   return postItems;
