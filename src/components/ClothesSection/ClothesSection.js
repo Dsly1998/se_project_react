@@ -1,10 +1,9 @@
 import React from "react";
-import { defaultClothingItems } from "../utils/contants";
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-const ClothesSection = ({ onSelectCard, handleActiveCreateModal }) => {
-  const filteredCards = defaultClothingItems.filter((item) => {
+const ClothesSection = ({ onSelectCard, handleActiveCreateModal, clothingItems }) => {
+  const filteredCards = clothingItems.filter((item) => {
     return item.weather.toLowerCase();
   });
   return (

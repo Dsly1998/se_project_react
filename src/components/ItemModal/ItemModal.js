@@ -15,7 +15,7 @@ const ItemModal = ({ selectedCard, onClose, handleDeleteButton }) => {
         <img
           className="modal__image-preview"
           id="image-preview"
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
         />
         <button
           className="modal__delete-button"
