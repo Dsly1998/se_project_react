@@ -20,6 +20,12 @@
   cursor: pointer;
   position: absolute;
 }
+
+.switch__slider:hover{
+    top: 3px;
+    left: 18px;
+}
+
 .switch__slider-F {
   top: 3px;
   left: 30px;
@@ -28,24 +34,24 @@
   top: 3px;
   left: 5px;
 }
-.switch__temp-F {
+.switch__temp-C {
   position: absolute;
   top: -10px;
   left: 12px;
   color: white;
 }
-.switch__temp-F.false {
+.switch__temp-C.false {
   font-size: 16px;
   color: rgba(0, 0, 0, 0.5);
   top: -10px;
 }
-.switch__temp-C {
+.switch__temp-F {
   position: absolute;
   color: white;
   top: -10px;
   left: 40px;
 }
-.switch__temp-C.false {
+.switch__temp-F.false {
   font-size: 16px;
   color: rgba(0, 0, 0, 0.5);
   top: -10px;

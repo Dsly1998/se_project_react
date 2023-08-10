@@ -1,4 +1,5 @@
 const baseUrl = "https://my-json-server.typicode.com/Dsly1998/se_project_react";
+// const baseUrl = 'http://localhost:3001'; 
 
 export const removeItems = (selectedCard) => {
   const deleteItems = fetch(`${baseUrl}/items/${selectedCard.id} `, {

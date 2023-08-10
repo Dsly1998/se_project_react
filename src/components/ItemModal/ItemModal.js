@@ -10,18 +10,20 @@ const ItemModal = ({ selectedCard, onClose, handleDeleteButton }) => {
           type="button"
           onClick={onClose}
         >
-          <img src={CloseIcon}  alt="close Icon"/>
+          <img src={CloseIcon} alt="close Icon" />
         </button>
         <img
           className="modal__image-preview"
           id="image-preview"
           src={selectedCard.link}
         />
-        <button className="modal__delete-button"
-        type="button"
-        onClick={() => handleDeleteButton(selectedCard)}>
+        <button
+          className="modal__delete-button"
+          type="button"
+          onClick={() => handleDeleteButton(selectedCard)}
+        >
           Delete item
-          </button>
+        </button>
         <div className="modal__card-name">{selectedCard.name}</div>
         <div className="modal__card-description">
           {" "}
