@@ -58,7 +58,6 @@ function App() {
   };
 
   const handleDeleteButton = (cardElement) => {
-    console.log(cardElement);
     removeItems(cardElement)
       .then(() => {
         const newClothingItems = clothingItems.filter((cards) => {
