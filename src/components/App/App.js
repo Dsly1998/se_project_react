@@ -33,7 +33,6 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    console.log(values);
     loadItems(values)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
