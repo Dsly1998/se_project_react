@@ -16,7 +16,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
-  const [CurrentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
 
   const handleCreateModal = () => {
@@ -53,8 +53,8 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
-    if (CurrentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-    if (CurrentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
+    if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
   const handleDeleteButton = (cardElement) => {
@@ -100,7 +100,7 @@ function App() {
   return (
     <div className="app">
       <CurrentTemperatureUnitContext.Provider
-        value={{ CurrentTemperatureUnit, handleToggleSwitchChange }}
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
         <Header onCreateModal={handleCreateModal} />
         <Switch>
