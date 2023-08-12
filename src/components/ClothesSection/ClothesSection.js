@@ -23,7 +23,7 @@ const ClothesSection = ({ onSelectCard, handleActiveCreateModal, clothingItems }
           {filteredCards.map((item) => {
             return (
               <ItemCard
-                key={item._id}
+                key={item.id}
                 item={item}
                 onSelectCard={onSelectCard}
               />
