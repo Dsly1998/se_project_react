@@ -9,7 +9,7 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { Switch, Route } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { getItems, loadItems, removeItems } from "../../utils/Api";
+import { fetchItems, loadItems, removeItems } from "../../utils/Api";
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
@@ -56,7 +56,7 @@ function App() {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
-  console.log(currentTemperatureUnit)
+
 
   const handleDeleteButton = (cardElement) => {
     removeItems(cardElement)
@@ -78,7 +78,7 @@ function App() {
   };
 
   useEffect(() => {
-    getItems()
+    fetchItems()
       .then((data) => {
         setClothingItems(data);
       })

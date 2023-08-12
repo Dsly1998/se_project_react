@@ -1,5 +1,5 @@
 import "./ItemModal.css";
-import CloseIcon from "../../images/Closex.svg";
+import closeIcon from "../../images/Closex.svg";
 
 const ItemModal = ({ selectedCard, onClose, handleDeleteButton }) => {
   return (
@@ -10,12 +10,13 @@ const ItemModal = ({ selectedCard, onClose, handleDeleteButton }) => {
           type="button"
           onClick={onClose}
         >
-          <img src={CloseIcon} alt="close Icon" />
+          <img src={closeIcon} alt="close Icon" />
         </button>
         <img
           className="modal__image-preview"
           id="image-preview"
           src={selectedCard.imageUrl}
+          alt="Clothing item"
         />
         <button
           className="modal__delete-button"

@@ -5,9 +5,9 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import "./Main.css";
 
 const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
-  const { CurrentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const isFahrenheit =
-    CurrentTemperatureUnit === "F" || CurrentTemperatureUnit === undefined; // Set to true if CurrentTemperatureUnit is undefined
+    currentTemperatureUnit === "F" || currentTemperatureUnit === undefined; // Set to true if CurrentTemperatureUnit is undefined
   const tempInFahrenheit = weatherTemp?.temperature?.["F"] || 999;
   const temp = isFahrenheit
     ? tempInFahrenheit
@@ -57,11 +57,7 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
         <div className="main__items">
           {filteredCards.map((item) => {
             return (
-              <ItemCard
-                key={item._id}
-                item={item}
-                onSelectCard={onSelectCard}
-              />
+              <ItemCard key={item.id} item={item} onSelectCard={onSelectCard} />
             );
           })}
         </div>

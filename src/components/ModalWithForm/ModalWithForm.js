@@ -1,5 +1,5 @@
 import "./ModalWithForm.css";
-import CloseImage from "../../images/Close.svg";
+import closeImage from "../../images/Close.svg";
 
 const ModalWithForm = ({
   children,
@@ -13,7 +13,7 @@ const ModalWithForm = ({
     <div className={`modal modal_type_${name}`}>
       <div className="modal__content">
         <button className="modal__close-button" type="button" onClick={onClose}>
-          <img src={CloseImage} alt="Close icon" />
+          <img src={closeImage} alt="Close icon" />
         </button>
         <h3>{title}</h3>
         <form onSubmit={onSubmit}>

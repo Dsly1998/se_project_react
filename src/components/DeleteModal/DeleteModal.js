@@ -2,7 +2,6 @@ import React from "react";
 import "./DeleteModal.css";
 
 const DeleteModal = ({ onClose, card, handleDeleteButton }) => {
-  console.log(card);
   return (
     <section className="modal" onClick={onClose}>
       <div className="delete__modal">
