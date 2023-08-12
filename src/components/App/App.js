@@ -56,6 +56,7 @@ function App() {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
+  console.log(currentTemperatureUnit)
 
   const handleDeleteButton = (cardElement) => {
     removeItems(cardElement)
