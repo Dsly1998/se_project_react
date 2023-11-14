@@ -29,6 +29,19 @@ const checkResponse = (res) => {
   }
 };
 
+export const registerUser = ({ email, password, name, avatar }) => {
+  return fetch('/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password, name, avatar }),
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(`Error: ${response.statusText}`);
+  });
+};
+
 export const loadItems = ({ name, link, weather }) => {
   const postItems = fetch(`${baseUrl}/items`, {
     method: "POST",

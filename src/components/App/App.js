@@ -1,15 +1,15 @@
-import "./App.css";
+import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
-import { parseWeatherData, getForcastWeather } from "../../utils/weatherApi";
-import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
-import { Switch, Route } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { fetchItems, loadItems, removeItems } from "../../utils/Api";
+import RegisterModal from "../RegisterModal/RegisterModal";
+import { fetchItems, loadItems, removeItems, registerUser } from "../../utils/Api";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
+import { Switch, Route } from "react-router-dom";
+import { getForcastWeather, parseWeatherData } from '../../utils/weatherApi';
 import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
@@ -53,10 +53,8 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
-    if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
-    if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
+    setCurrentTemperatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
   };
-
 
   const handleDeleteButton = (cardElement) => {
     removeItems(cardElement)
@@ -75,6 +73,16 @@ function App() {
   const handleDeleteConfirmationModal = (selectedCard) => {
     setActiveModal("confirmation-opened");
     setSelectedCard(selectedCard);
+  };
+
+  const handleRegistration = (email, password, name, avatar) => {
+    registerUser({ email, password, name, avatar })
+      .then(() => {
+        setActiveModal("");
+      })
+      .catch((error) => {
+        console.error('Registration Error:', error);
+      });
   };
 
   useEffect(() => {
@@ -112,7 +120,6 @@ function App() {
               clothingItems={clothingItems}
             />
           </Route>
-
           <Route path="/profile">
             <Profile
               onSelectCard={handleItemCard}
@@ -141,6 +148,15 @@ function App() {
             onClose={handleCloseModal}
             card={selectedCard}
             handleDeleteButton={handleDeleteButton}
+          />
+        )}
+        {activeModal === "register" && (
+          <RegisterModal
+            isOpen={activeModal === "register"}
+            setActiveModal={setActiveModal}
+            handleRegistration={handleRegistration}
+            isLoading={false}
+            handleCloseModal={handleCloseModal}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
