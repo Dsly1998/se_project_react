@@ -57,7 +57,11 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems }) => {
         <div className="main__items">
           {filteredCards.map((item) => {
             return (
-              <ItemCard key={item.id} item={item} onSelectCard={onSelectCard} />
+              <ItemCard
+                key={item._id}
+                item={item}
+                onSelectCard={onSelectCard}
+              />
             );
           })}
         </div>

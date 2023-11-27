@@ -3,7 +3,7 @@ import closeImage from "../../images/Close.svg";
 
 const ModalWithForm = ({
   children,
-  buttonText = "Add garment",
+  buttonText,
   title,
   onClose,
   name,
