@@ -1,3 +1,4 @@
+// Profile.js
 import React from "react";
 import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
@@ -10,7 +11,7 @@ const Profile = ({ onSelectCard, handleActiveCreateModal, clothingItems }) => {
       <ClothesSection
         onSelectCard={onSelectCard}
         handleActiveCreateModal={handleActiveCreateModal}
-        clothingItems={clothingItems}
+        clothingItems={clothingItems} // Ensure that clothingItems is passed correctly
       />
     </section>
   );

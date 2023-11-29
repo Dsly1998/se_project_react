@@ -3,9 +3,10 @@ import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
 const ClothesSection = ({ onSelectCard, handleActiveCreateModal, clothingItems }) => {
-  const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLowerCase();
+  const filteredCards = clothingItems && clothingItems.filter((item) => {
+    return item.weather.toLowerCase()
   });
+
   return (
     <section className="clothesSection">
       <div className="clothesSection__header">
@@ -20,7 +21,7 @@ const ClothesSection = ({ onSelectCard, handleActiveCreateModal, clothingItems }
       </div>
       <div className="clothesSection__cards">
         <div className="clothesSection__card-items">
-          {filteredCards.map((item) => {
+          {filteredCards && filteredCards.map((item) => {
             return (
               <ItemCard
                 key={item.id}
