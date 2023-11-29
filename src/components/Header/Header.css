@@ -55,4 +55,18 @@
 .header__avatar {
   height: 40px;
   width: 40px;
+  border-radius: 50%;
+}
+
+.header__avatar-placeholder{
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  border-radius: 50%; /* Make it round */
+  background-color: #cccccc; /* Placeholder background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  font-size: 20px; /* Adjust text size as needed */
+  font-weight: bold;
 }

@@ -1,15 +1,29 @@
-import "./Header.css";
-import Logo from "../../images/Logo.svg";
-import avatar from "../../images/avatar.svg";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+import Logo from "../../images/Logo.svg";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import "./Header.css";
 
-const currentDate = new Date().toLocaleString("default", {
-  month: "long",
-  day: "numeric",
-});
+const Header = ({ onCreateModal, onLogin, onRegister }) => {
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
-const Header = ({ onCreateModal }) => {
+  const createPlaceholderImage = (name) => {
+    if (!name) return null; 
+
+    const initial = name.charAt(0).toUpperCase();
+    return (
+      <div className="header__avatar-placeholder">
+        {initial}
+      </div>
+    );
+  };
+
+  const currentDate = new Date().toLocaleString("default", {
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <header className="header">
       <div className="header__left">
@@ -22,21 +36,30 @@ const Header = ({ onCreateModal }) => {
       </div>
       <div className="header__right">
         <ToggleSwitch />
-        <div>
-          <button
-            className="header__button"
-            type="text"
-            onClick={onCreateModal}
-          >
-            + Add clothes
-          </button>
-        </div>
-        <Link className="header__name" to="/profile">
-          Terrence Tegegne
-        </Link>
-        <div>
-          <img className="header__avatar" src={avatar} alt="avatar" />
-        </div>
+        {currentUser ? (
+          <>
+            <div>
+              <button className="header__button" type="text" onClick={onCreateModal}>
+                + Add clothes
+              </button>
+            </div>
+            <Link className="header__name" to="/profile">
+              {currentUser.name}
+            </Link>
+            <div>
+              {currentUser.avatar ? (
+                <img className="header__avatar" src={currentUser.avatar} alt={`${currentUser.name}'s avatar`} />
+              ) : (
+                createPlaceholderImage(currentUser.name)
+              )}
+            </div>
+          </>
+        ) : (
+          <>
+            <button onClick={onLogin}>Login</button>
+            <button onClick={onRegister}>Register</button>
+          </>
+        )}
       </div>
     </header>
   );

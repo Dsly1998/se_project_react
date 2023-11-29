@@ -2,13 +2,16 @@
   display: flex;
   justify-content: flex-start;
   max-width: 1360px;
-  padding-top: 32px;
+  padding-top: 36px;
+  display:flex;
+  flex-direction: column;
 }
 
 .sideBar__avatar {
   height: 56px;
   width: 56px;
-  padding-right: 16px;
+  margin-right: 16px;
+  border-radius: 50%;
 }
 
 .sideBar__name {
@@ -18,4 +21,38 @@
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
+}
+
+.sideBar__logout-button{
+  font-family: Cabinet Grotesk;
+font-size: 20px;
+font-weight: 700;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+border:none;
+background-color: transparent;
+display: flex;
+}
+
+.sideBar__logout-button:hover{
+  cursor: pointer;
+}
+
+.sideBar__user-info{
+  display: flex;
+
+}
+
+.sideBar__profile-edit{
+  font-family: Cabinet Grotesk;
+font-size: 20px;
+font-weight: 700;
+line-height: 25px;
+letter-spacing: 0em;
+text-align: left;
+border:none;
+background-color: transparent;
+display: flex;
+flex-direction: column;
 }
