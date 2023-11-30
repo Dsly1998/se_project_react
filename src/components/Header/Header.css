@@ -58,7 +58,7 @@
   border-radius: 50%;
 }
 
-.header__avatar-placeholder{
+.header__avatar-placeholder {
   width: 40px; /* Adjust size as needed */
   height: 40px; /* Adjust size as needed */
   border-radius: 50%; /* Make it round */
@@ -69,4 +69,38 @@
   color: white; /* Text color */
   font-size: 20px; /* Adjust text size as needed */
   font-weight: bold;
+}
+
+.header__login-button {
+  width: 78px;
+  height: 24px;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+}
+
+.header__login-button:hover{
+  cursor: pointer;
+}
+
+.header__register-button {
+  width: 84px;
+  height: 24px;
+  font-family: Cabinet Grotesk;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+}
+
+.header__register-button:hover{
+  cursor: pointer;
 }

@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -11,13 +15,13 @@ import LoginModal from "../LoginModal/LoginModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { CurrentUserContext, CurrentUserProvider } from "../../contexts/CurrentUserContext"; // Import the context
+import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Import the context
 import { register, signin, checkToken } from "../../utils/Auth";
 import { fetchItems, loadItems, removeItems } from "../../utils/Api";
 import { getForcastWeather, parseWeatherData } from "../../utils/weatherApi";
 import "./App.css";
 
-function App() {
+function App() { 
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
@@ -118,13 +122,18 @@ function App() {
       });
   };
 
-  const handleLogin = (email, password) => {
+  // App.js
+
+  const handleLogin = (email, password, onSuccess) => {
     signin({ email, password })
       .then((data) => {
         localStorage.setItem("jwt", data.token);
         setIsLoggedIn(true);
         setCurrentUser({ email });
         handleCloseModal();
+        if (onSuccess) {
+          onSuccess(); // Call the onSuccess callback
+        }
       })
       .catch((error) => {
         console.error("Login Error:", error);
@@ -133,8 +142,12 @@ function App() {
 
   return (
     <Router>
-      <CurrentTemperatureUnitContext.Provider value={{ currentTemperatureUnit, handleToggleSwitchChange }}>
-        <CurrentUserProvider value={{ currentUser, setCurrentUser }}> {/* Updated to use CurrentUserProvider */}
+      <CurrentTemperatureUnitContext.Provider
+        value={{ currentTemperatureUnit, handleToggleSwitchChange }}
+      >
+        <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
+          {" "}
+          {/* Updated to use CurrentUserProvider */}
           <div className="app">
             <Header
               onCreateModal={handleCreateModal}
@@ -156,6 +169,7 @@ function App() {
                   handleActiveCreateModal={handleCreateModal}
                   clothingItems={clothingItems}
                   selectedCard={selectedCard}
+                  setIsLoggedIn={setIsLoggedIn}
                 />
               </ProtectedRoute>
               {/* Additional routes */}
@@ -197,7 +211,7 @@ function App() {
               />
             )}
           </div>
-        </CurrentUserProvider>
+        </CurrentUserContext.Provider>
       </CurrentTemperatureUnitContext.Provider>
     </Router>
   );

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import CurrentUserContext from '../../contexts/CurrentUserContext'; // Adjust the import path as needed
+import {CurrentUserContext} from '../../contexts/CurrentUserContext'; // Adjust the import path as needed
 import "./SideBar.css";
 
 const SideBar = ({ onLogout }) => {

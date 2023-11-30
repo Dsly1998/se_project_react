@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
-import CurrentUserContext from '../../contexts/CurrentUserContext';
+import {CurrentUserContext} from '../../contexts/CurrentUserContext';
 import Logo from "../../images/Logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 
 const Header = ({ onCreateModal, onLogin, onRegister }) => {
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-
+  const { currentUser } = useContext(CurrentUserContext);
   const createPlaceholderImage = (name) => {
     if (!name) return null; 
 
@@ -56,8 +55,9 @@ const Header = ({ onCreateModal, onLogin, onRegister }) => {
           </>
         ) : (
           <>
-            <button onClick={onLogin}>Login</button>
-            <button onClick={onRegister}>Register</button>
+           <button className="header__register-button" onClick={onRegister}>Sign Up</button>
+            <button className="header__login-button" onClick={onLogin}>Log In</button>
+           
           </>
         )}
       </div>
