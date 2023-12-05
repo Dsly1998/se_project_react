@@ -59,7 +59,7 @@ const RegisterModal = ({ isOpen, handleCloseModal, handleRegistration }) => {
         type="url"
         value={avatar}
         onChange={handleAvatarChange}
-        placeholder="Avatar URL (optional)"
+        placeholder="Avatar URL"
         className="Register__modal-input"
       />
       </label>

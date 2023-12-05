@@ -6,12 +6,12 @@ const ClothesSection = ({
   onSelectCard,
   handleActiveCreateModal,
   clothingItems,
+  currentUser, // Add currentUser as a prop
 }) => {
-  const filteredCards =
-    clothingItems &&
-    clothingItems.filter((item) => {
-      return item.weather.toLowerCase();
-    });
+  // Filter to show only the items added by the current user
+  const filteredCards = clothingItems.filter((item) => {
+    return currentUser && item.owner._id === currentUser._id;
+  });
 
   return (
     <section className="clothesSection">
@@ -19,7 +19,7 @@ const ClothesSection = ({
         <div className="clothesSection__title">Your items:</div>
         <button
           className="clothesSection__button"
-          type="text"
+          type="button" // Corrected button type
           onClick={handleActiveCreateModal}
         >
           + Add new
@@ -27,16 +27,13 @@ const ClothesSection = ({
       </div>
       <div className="clothesSection__cards">
         <div className="clothesSection__card-items">
-          {filteredCards &&
-            filteredCards.map((item) => {
-              return (
-                <ItemCard
-                  key={item._id}
-                  item={item}
-                  onSelectCard={onSelectCard}
-                />
-              );
-            })}
+          {filteredCards.map((item) => (
+            <ItemCard
+              key={item._id}
+              item={item}
+              onSelectCard={onSelectCard}
+            />
+          ))}
         </div>
       </div>
     </section>

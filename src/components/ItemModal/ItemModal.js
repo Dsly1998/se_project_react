@@ -1,33 +1,42 @@
+import React from "react";
 import "./ItemModal.css";
 import closeIcon from "../../images/Closex.svg";
 
-const ItemModal = ({ selectedCard, onClose, handleDeleteButton }) => {
+const ItemModal = ({ selectedCard, currentUser, onClose, handleDeleteButton }) => {
+  // Ensure both selectedCard and currentUser are available before checking ownership
+  const isOwn = selectedCard && currentUser && selectedCard.owner._id === currentUser._id;
+
+  // Use the isOwn check to set the class name for the delete button
+  const itemDeleteButtonClassName = `modal__delete-button ${
+    isOwn ? 'modal__delete-button_visible' : 'modal__delete-button_hidden'
+  }`;
+
   return (
-    <div className={`modal`}>
+    <div className="modal">
       <div className="modal__content-preview">
         <button
           className="modal__preview-close"
           type="button"
           onClick={onClose}
         >
-          <img src={closeIcon} alt="close Icon" />
+          <img src={closeIcon} alt="Close icon" />
         </button>
         <img
           className="modal__image-preview"
-          id="image-preview"
           src={selectedCard.imageUrl}
           alt="Clothing item"
         />
-        <button
-          className="modal__delete-button"
-          type="button"
-          onClick={() => handleDeleteButton(selectedCard)}
-        >
-          Delete item
-        </button>
+        {isOwn && (
+          <button
+            className={itemDeleteButtonClassName}
+            type="button"
+            onClick={() => handleDeleteButton(selectedCard)}
+          >
+            Delete item
+          </button>
+        )}
         <div className="modal__card-name">{selectedCard.name}</div>
         <div className="modal__card-description">
-          {" "}
           Weather type: {selectedCard.weather}
         </div>
       </div>

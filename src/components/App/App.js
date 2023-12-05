@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -21,7 +17,7 @@ import { fetchItems, loadItems, removeItems } from "../../utils/Api";
 import { getForcastWeather, parseWeatherData } from "../../utils/weatherApi";
 import "./App.css";
 
-function App() { 
+function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
@@ -126,17 +122,16 @@ function App() {
 
   const handleLogin = (email, password) => {
     signin({ email, password })
-    .then((data) => {
-      localStorage.setItem("jwt", data.token);
-      setIsLoggedIn(true);
-      setCurrentUser({ email, name: data.name, avatar: data.avatar }); // Or however your user data is structured
-      handleCloseModal();
-    })
-    .catch((error) => {
-      console.error("Login Error:", error);
-    });
+      .then((data) => {
+        localStorage.setItem("jwt", data.token);
+        setIsLoggedIn(true);
+        setCurrentUser({ email, name: data.name, avatar: data.avatar }); // Or however your user data is structured
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.error("Login Error:", error);
+      });
   };
-  
 
   return (
     <Router>
@@ -183,10 +178,12 @@ function App() {
             {activeModal === "preview" && (
               <ItemModal
                 selectedCard={selectedCard}
+                currentUser={currentUser} // Pass currentUser as a prop
                 onClose={handleCloseModal}
                 handleDeleteButton={handleDeleteConfirmationModal}
               />
             )}
+
             {activeModal === "confirmation-opened" && (
               <DeleteModal
                 onClose={handleCloseModal}

@@ -3,27 +3,19 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const [name, setName] = useState("");
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
   const [link, setUrl] = useState("");
-
-  const handleUrlChange = (e) => {
-    setUrl(e.target.value);
-  };
-
   const [weather, setWeather] = useState("");
 
-  const handleWeatherChange = (e) => {
-    setWeather(e.target.value);
-  };
+  const handleNameChange = (e) => setName(e.target.value);
+  const handleUrlChange = (e) => setUrl(e.target.value);
+  const handleWeatherChange = (e) => setWeather(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem({ name, link, weather });
+    handleCloseModal(); // Optionally close the modal on submission
   };
+
 
   return (
     <ModalWithForm
@@ -93,6 +85,9 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             onChange={handleWeatherChange}
           />
           <label className="modal__label-radio">Cold</label>
+          <button className="modal__add-button" type="submit">
+            Add garment
+          </button>
         </div>
       </div>
     </ModalWithForm>

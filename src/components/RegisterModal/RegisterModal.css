@@ -39,6 +39,10 @@
   padding-bottom: 6px;
 }
 
+::placeholder{
+    width: 440px;
+}
+
 .Register__modal-submit-button {
   margin-right: 8px;
   margin-top: 18px;
