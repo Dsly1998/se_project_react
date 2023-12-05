@@ -124,21 +124,19 @@ function App() {
 
   // App.js
 
-  const handleLogin = (email, password, onSuccess) => {
+  const handleLogin = (email, password) => {
     signin({ email, password })
-      .then((data) => {
-        localStorage.setItem("jwt", data.token);
-        setIsLoggedIn(true);
-        setCurrentUser({ email });
-        handleCloseModal();
-        if (onSuccess) {
-          onSuccess(); // Call the onSuccess callback
-        }
-      })
-      .catch((error) => {
-        console.error("Login Error:", error);
-      });
+    .then((data) => {
+      localStorage.setItem("jwt", data.token);
+      setIsLoggedIn(true);
+      setCurrentUser({ email, name: data.name, avatar: data.avatar }); // Or however your user data is structured
+      handleCloseModal();
+    })
+    .catch((error) => {
+      console.error("Login Error:", error);
+    });
   };
+  
 
   return (
     <Router>
