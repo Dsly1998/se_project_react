@@ -60,7 +60,7 @@ function App() {
           setIsLoggedIn(false);
         });
     }
-  }, []);
+  }, [isLoggedIn]);
 
   const handleToggleSwitchChange = () => {
     setCurrentTemperatureUnit(currentTemperatureUnit === "C" ? "F" : "C");
@@ -95,7 +95,7 @@ function App() {
     removeItems(cardElement)
       .then(() => {
         const newClothingItems = clothingItems.filter(
-          (card) => card.id !== cardElement
+          (card) => card._id !== cardElement
         );
         setClothingItems(newClothingItems);
         handleCloseModal();
@@ -125,7 +125,6 @@ function App() {
       .then((data) => {
         localStorage.setItem("jwt", data.token);
         setIsLoggedIn(true);
-        setCurrentUser({ email, name: data.name, avatar: data.avatar }); // Or however your user data is structured
         handleCloseModal();
       })
       .catch((error) => {

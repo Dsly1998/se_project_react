@@ -3,10 +3,8 @@ import "./ItemModal.css";
 import closeIcon from "../../images/Closex.svg";
 
 const ItemModal = ({ selectedCard, currentUser, onClose, handleDeleteButton }) => {
-  // Ensure both selectedCard and currentUser are available before checking ownership
-  const isOwn = selectedCard && currentUser && selectedCard.owner._id === currentUser._id;
+  const isOwn = selectedCard && currentUser && selectedCard.owner === currentUser._id;
 
-  // Use the isOwn check to set the class name for the delete button
   const itemDeleteButtonClassName = `modal__delete-button ${
     isOwn ? 'modal__delete-button_visible' : 'modal__delete-button_hidden'
   }`;

@@ -10,7 +10,7 @@ const ClothesSection = ({
 }) => {
   // Filter to show only the items added by the current user
   const filteredCards = clothingItems.filter((item) => {
-    return currentUser && item.owner._id === currentUser._id;
+    return currentUser && item.owner === currentUser._id;
   });
 
   return (
