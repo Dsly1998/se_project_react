@@ -105,6 +105,14 @@ function App() {
       });
   };
 
+  const handleOpenRegisterModal = () => {
+    setActiveModal("register");
+  };
+
+  const handleOpenLoginModal = () => {
+    setActiveModal("login");
+  };
+
   const handleRegistration = (email, password, name, avatar) => {
     register({ email, password, name, avatar })
       .then((data) => {
@@ -195,13 +203,16 @@ function App() {
                 isOpen={activeModal === "register"}
                 handleCloseModal={handleCloseModal}
                 handleRegistration={handleRegistration}
+                openLoginModal={handleOpenLoginModal}
               />
             )}
+
             {activeModal === "login" && (
               <LoginModal
                 isOpen={activeModal === "login"}
                 handleCloseModal={handleCloseModal}
                 handleLogin={handleLogin}
+                openRegisterModal={handleOpenRegisterModal}
               />
             )}
           </div>

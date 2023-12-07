@@ -72,5 +72,8 @@
   color: #ffffff;
   border: none;
   border-radius: 10%;
-  opacity: 50%;
+}
+
+.Register__modal-next-button.disabled {
+  opacity: 0.5; /* Reduced opacity when disabled */
 }

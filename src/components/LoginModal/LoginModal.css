@@ -1,0 +1,79 @@
+@font-face {
+    font-family: Cabinet Grotesk;
+    src: "../fonts/CabinetGrotesk-Black.woff";
+  }
+.Login__modal-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Login__modal-title {
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.Login__modal-label {
+  display: flex;
+  flex-direction: column;
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-bottom: 22px;
+}
+
+.Login__modal-input {
+  width: 440px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-top: 4px;
+  border-width: 1px;
+  padding-bottom: 6px;
+}
+
+::placeholder{
+    width: 440px;
+}
+
+.Login__modal-submit-button {
+  margin-right: 8px;
+  margin-top: 18px;
+}
+.Login__modal-login-button {
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  background: transparent;
+  border: none;
+  opacity: 50%;
+}
+
+.Login__modal-next-button {
+  width: 65px;
+  height: 36px;
+  font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 10%;
+}
+
+.Login__modal-next-button.disabled {
+  opacity: 0.5; /* Reduced opacity when disabled */
+}
