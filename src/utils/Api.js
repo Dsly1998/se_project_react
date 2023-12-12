@@ -61,3 +61,14 @@ export const loadItems = ({ name, link, weather }) => {
   }).then(checkResponse);
   return postItems;
 };
+
+export const likeItem = (itemId) => {
+  const token = getToken();
+  return fetch(`${baseUrl}/items/${itemId}/like`, {
+    method: "PUT", // or "POST", depending on how your API is set up
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+};

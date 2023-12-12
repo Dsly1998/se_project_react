@@ -28,3 +28,24 @@
 .card__image:hover {
   cursor: pointer;
 }
+
+.card__like-Button{
+  border: none;
+  position: relative;
+  bottom: 273px;
+  left:220px;
+  background-color: transparent;
+}
+
+.card__like-image-active{
+  border: none;
+  position: relative;
+  bottom: 0px;
+  right:19px;
+  background-color: transparent;
+  display: none;
+}
+
+.card__like-Button:hover{
+  cursor: pointer;
+}
