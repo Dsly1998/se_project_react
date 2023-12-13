@@ -5,7 +5,6 @@
   padding: 0 40px;
   max-width: 1360px;
   margin: auto;
-  margin-top: 32px;
   font-family: "Cabinet Grotesk";
   font-style: normal;
   font-weight: 500;
@@ -13,4 +12,5 @@
   line-height: 20px;
   padding-top: 45px;
   padding-bottom: 24px;
+  background-color: #f3f3f3;
 }
