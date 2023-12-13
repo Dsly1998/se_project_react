@@ -1,7 +1,7 @@
 @font-face {
-    font-family: Cabinet Grotesk;
-    src: "../fonts/CabinetGrotesk-Black.woff";
-  }
+  font-family: Cabinet Grotesk;
+  src: "../fonts/CabinetGrotesk-Black.woff";
+}
 .Login__modal-container {
   display: flex;
   flex-direction: column;
@@ -39,13 +39,14 @@
   padding-bottom: 6px;
 }
 
-::placeholder{
-    width: 440px;
+::placeholder {
+  width: 440px;
 }
 
 .Login__modal-submit-button {
   margin-right: 8px;
   margin-top: 18px;
+  margin-bottom: 32px;
 }
 .Login__modal-login-button {
   font-family: Cabinet Grotesk;

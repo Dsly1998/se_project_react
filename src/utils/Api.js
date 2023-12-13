@@ -64,8 +64,31 @@ export const loadItems = ({ name, link, weather }) => {
 
 export const likeItem = (itemId) => {
   const token = getToken();
-  return fetch(`${baseUrl}/items/${itemId}/like`, {
-    method: "PUT", // or "POST", depending on how your API is set up
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then(checkResponse);
+};
+
+export const updateUserProfile = (updatedData) => {
+  const token = getToken();
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(updatedData),
+  }).then(checkResponse);
+};
+
+export const dislikeItem = (itemId) => {
+  const token = getToken();
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,

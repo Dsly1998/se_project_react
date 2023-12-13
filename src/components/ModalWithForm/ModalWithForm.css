@@ -6,17 +6,15 @@
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .modal__content {
   position: relative;
-  top: 23%;
   box-sizing: border-box;
   width: 496px;
-  height: 436px;
   background: #ffffff;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -89,7 +87,6 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-
 .modal__label-radio:checked {
   color: #000000;
 }
@@ -114,9 +111,9 @@
   border-radius: 4px;
   color: #ffffff;
   margin-top: 32px;
+  margin-bottom: 32px;
 }
 
-
-#radio-options{
+#radio-options {
   margin-bottom: 18px;
 }

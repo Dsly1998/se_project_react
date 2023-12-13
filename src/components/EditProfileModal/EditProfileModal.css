@@ -1,0 +1,66 @@
+@font-face {
+    font-family: Cabinet Grotesk;
+    src: "../fonts/CabinetGrotesk-Black.woff";
+  }
+.EditProfile__modal-title {
+    font-family: Cabinet Grotesk;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 16px;
+  }
+  
+  .EditProfile__modal-label {
+    display: flex;
+    flex-direction: column;
+    font-family: Cabinet Grotesk;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 22px;
+  }
+  
+  .EditProfile__modal-input {
+    width: 440px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-top: 4px;
+  border-width: 1px;
+  padding-bottom: 6px;
+  }
+
+  ::placeholder {
+    width: 440px;
+  }
+  
+  .EditProfile__modal-submit-button {
+    margin-right: 8px;
+    margin-top: 18px;
+    margin-bottom: 32px;
+  }
+  
+  .EditProfile__modal-save-button {
+    width: 128pxpx;
+    height: 36px;
+    font-family: Cabinet Grotesk;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .EditProfile__modal-save-button.disabled {
+   opacity: 0.5;
+  }
+  

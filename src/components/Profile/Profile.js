@@ -4,7 +4,7 @@ import SideBar from '../SideBar/SideBar'; // Adjust the import path as needed
 import ClothesSection from '../ClothesSection/ClothesSection'; // Adjust the import path as needed
 import './Profile.css';
 
-const Profile = ({ onSelectCard, handleActiveCreateModal, clothingItems, setIsLoggedIn }) => {
+const Profile = ({ onSelectCard, handleActiveCreateModal, clothingItems, setIsLoggedIn, handleOpenEditProfileModal }) => {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
   const handleLogout = () => {
@@ -15,7 +15,7 @@ const Profile = ({ onSelectCard, handleActiveCreateModal, clothingItems, setIsLo
 
   return (
     <section className="profile">
-      <SideBar onLogout={handleLogout} />
+      <SideBar onLogout={handleLogout} onEditProfile={handleOpenEditProfileModal} /> 
       <ClothesSection
         onSelectCard={onSelectCard}
         handleActiveCreateModal={handleActiveCreateModal}
