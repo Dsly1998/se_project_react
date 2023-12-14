@@ -56,3 +56,7 @@ background-color: transparent;
 display: flex;
 flex-direction: column;
 }
+
+.sideBar__profile-edit:hover{
+  cursor: pointer;
+}

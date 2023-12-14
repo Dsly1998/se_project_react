@@ -14,7 +14,6 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
     }
   }, [currentUser, isOpen]);
   
-
   const handleNameChange = (e) => setName(e.target.value);
   const handleAvatarUrlChange = (e) => setAvatarUrl(e.target.value);
 
@@ -22,6 +21,8 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
     e.preventDefault();
     handleSubmit({ name, avatar });
   };
+
+  const isFormFilled = name && avatar; // Check if both fields are filled
 
   return (
     <ModalWithForm
@@ -51,15 +52,15 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
           onChange={handleAvatarUrlChange}
           placeholder="Avatar URL"
           className="EditProfile__modal-input"
+          required
         />
       </label>
 
       <div className="EditProfile__modal-submit-button">
         <button
-          className={`EditProfile__modal-save-button ${
-            name ? "" : "disabled"
-          }`}
+          className={`EditProfile__modal-save-button ${isFormFilled ? "" : "disabled"}`}
           type="submit"
+          style={{ opacity: isFormFilled ? 1 : 0.5 }}
         >
           Save Changes
         </button>
