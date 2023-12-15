@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import ModalWithForm from '../ModalWithForm/ModalWithForm';
+import React, { useState, useEffect } from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./EditProfileModal.css";
 
 const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
-  const [name, setName] = useState('');
-  const [avatar, setAvatarUrl] = useState('');
+  const [name, setName] = useState("");
+  const [avatar, setAvatarUrl] = useState("");
 
   // Load current user data when the modal opens
   useEffect(() => {
     if (currentUser) {
-      setName(currentUser.name || '');
-      setAvatarUrl(currentUser.avatarUrl || '');
+      setName(currentUser.name || "");
+      setAvatarUrl(currentUser.avatarUrl || "");
     }
   }, [currentUser, isOpen]);
-  
+
   const handleNameChange = (e) => setName(e.target.value);
   const handleAvatarUrlChange = (e) => setAvatarUrl(e.target.value);
 
@@ -25,11 +25,7 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
   const isFormFilled = name && avatar; // Check if both fields are filled
 
   return (
-    <ModalWithForm
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={onFormSubmit}
-    >
+    <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onFormSubmit}>
       <h2 className="EditProfile__modal-title">Edit Profile</h2>
 
       <label className="EditProfile__modal-label">
@@ -58,7 +54,9 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
 
       <div className="EditProfile__modal-submit-button">
         <button
-          className={`EditProfile__modal-save-button ${isFormFilled ? "" : "disabled"}`}
+          className={`EditProfile__modal-save-button ${
+            isFormFilled ? "" : "disabled"
+          }`}
           type="submit"
           style={{ opacity: isFormFilled ? 1 : 0.5 }}
         >
