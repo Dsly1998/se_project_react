@@ -19,7 +19,7 @@ import {
   loadItems,
   removeItems,
   updateUserProfile,
-} from "../../utils/Api"; 
+} from "../../utils/Api";
 import { getForcastWeather, parseWeatherData } from "../../utils/weatherApi";
 import { likeItem, dislikeItem } from "../../utils/Api";
 import "./App.css";
@@ -120,7 +120,11 @@ function App() {
   const handleCardLike = (itemId) => {
     likeItem(itemId)
       .then((updatedItem) => {
-        setClothingItems(clothingItems.map((item) => item._id === itemId ? updatedItem : item));
+        setClothingItems(
+          clothingItems.map((item) =>
+            item._id === itemId ? updatedItem : item
+          )
+        );
       })
       .catch(console.error);
   };
@@ -128,7 +132,11 @@ function App() {
   const handleCardDislike = (itemId) => {
     dislikeItem(itemId)
       .then((updatedItem) => {
-        setClothingItems(clothingItems.map((item) => item._id === itemId ? updatedItem : item));
+        setClothingItems(
+          clothingItems.map((item) =>
+            item._id === itemId ? updatedItem : item
+          )
+        );
       })
       .catch(console.error);
   };
@@ -149,12 +157,12 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <Main
-            weatherTemp={temp}
-            onSelectCard={handleSelectedCard}
-            clothingItems={clothingItems}
-            onCardLike={handleCardLike}
-            onCardDislike={handleCardDislike}
-            currentUser={currentUser}
+                  weatherTemp={temp}
+                  onSelectCard={handleSelectedCard}
+                  clothingItems={clothingItems}
+                  onCardLike={handleCardLike}
+                  onCardDislike={handleCardDislike}
+                  currentUser={currentUser}
                 />
               </Route>
               // In App.js, inside the return statement
@@ -165,7 +173,9 @@ function App() {
                   clothingItems={clothingItems}
                   selectedCard={selectedCard}
                   setIsLoggedIn={setIsLoggedIn}
-                  handleOpenEditProfileModal={handleOpenEditProfileModal} // Pass this prop to Profile
+                  handleOpenEditProfileModal={handleOpenEditProfileModal}
+                  onCardLike={handleCardLike} // Add this line
+                  onCardDislike={handleCardDislike} // Add this line
                 />
               </ProtectedRoute>
               {/* Additional routes */}

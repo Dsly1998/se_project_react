@@ -10,7 +10,7 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
   useEffect(() => {
     if (currentUser) {
       setName(currentUser.name || "");
-      setAvatarUrl(currentUser.avatarUrl || "");
+      setAvatarUrl(currentUser.avatar || "");
     }
   }, [currentUser, isOpen]);
 

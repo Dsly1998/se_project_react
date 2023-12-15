@@ -6,7 +6,9 @@ const ClothesSection = ({
   onSelectCard,
   handleActiveCreateModal,
   clothingItems,
-  currentUser, // Add currentUser as a prop
+  currentUser,
+  onCardLike, 
+  onCardDislike // Add currentUser as a prop
 }) => {
   // Filter to show only the items added by the current user
   const filteredCards = clothingItems.filter((item) => {
@@ -29,10 +31,13 @@ const ClothesSection = ({
         <div className="clothesSection__card-items">
           {filteredCards.map((item) => (
             <ItemCard
-              key={item._id}
-              item={item}
-              onSelectCard={onSelectCard}
-            />
+            key={item._id}
+            item={item}
+            onSelectCard={onSelectCard}
+            onCardLike={onCardLike}
+            onCardDislike={onCardDislike}
+            currentUser={currentUser}
+          />
           ))}
         </div>
       </div>
