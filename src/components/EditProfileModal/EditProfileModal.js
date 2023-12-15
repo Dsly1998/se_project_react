@@ -8,7 +8,7 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
 
   // Load current user data when the modal opens
   useEffect(() => {
-    if (currentUser) {
+    if (isOpen && currentUser) {
       setName(currentUser.name || "");
       setAvatarUrl(currentUser.avatar || "");
     }
@@ -19,10 +19,11 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    handleSubmit({ name, avatar });
+    const userData = { name, avatar };
+    handleSubmit(JSON.stringify(userData));
   };
 
-  const isFormFilled = name && avatar; // Check if both fields are filled
+  const isFormFilled = name && avatar;
 
   return (
     <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onFormSubmit}>
@@ -54,11 +55,10 @@ const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
 
       <div className="EditProfile__modal-submit-button">
         <button
-          className={`EditProfile__modal-save-button ${
-            isFormFilled ? "" : "disabled"
-          }`}
+          className={`EditProfile__modal-save-button ${isFormFilled ? "" : "disabled"}`}
           type="submit"
           style={{ opacity: isFormFilled ? 1 : 0.5 }}
+          disabled={!isFormFilled}
         >
           Save Changes
         </button>
