@@ -1,3 +1,10 @@
+.item-card {
+  position: relative;
+}
+
+.item-card__details {
+}
+
 .card__text {
   background: #fff;
   border-radius: 4px;
@@ -22,30 +29,21 @@
   justify-content: end;
   background: #e9e9e9;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  margin:0;
+  margin: 0;
 }
 
 .card__image:hover {
   cursor: pointer;
 }
 
-.card__like-Button{
+.card__like-Button {
   border: none;
-  position: relative;
-  bottom: 273px;
-  left:220px;
+  position: absolute;
+  bottom: 300px;
+  left: 220px;
   background-color: transparent;
 }
 
-.card__like-image-active{
-  border: none;
-  position: relative;
-  bottom: 0px;
-  right:19px;
-  background-color: transparent;
-  display: none;
-}
-
-.card__like-Button:hover{
+.card__like-Button:hover {
   cursor: pointer;
 }

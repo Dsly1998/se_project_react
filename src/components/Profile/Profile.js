@@ -23,6 +23,7 @@ const Profile = ({
 
   return (
     <section className="profile">
+      <div className="profile__content">
       <SideBar
         onLogout={handleLogout}
         onEditProfile={handleOpenEditProfileModal}
@@ -35,6 +36,7 @@ const Profile = ({
         onCardDislike={onCardDislike}
         currentUser={currentUser}
       />
+      </div>
     </section>
   );
 };

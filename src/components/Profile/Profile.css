@@ -1,10 +1,13 @@
 .profile{
+    background-color: #f3f3f3;
+}
+
+.profile__content{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 1360px;
+    max-width: 1350px;
     padding-top: 32px;
     margin: auto;
     padding: 0 40px;
-    background-color: #f3f3f3;
 }

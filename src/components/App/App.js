@@ -109,7 +109,7 @@ function App() {
   const handleOpenEditProfileModal = () => setActiveModal("editProfile");
 
   const handleEditProfileSubmit = (updatedData) => {
-    updateUserProfile(currentUser._id, updatedData)
+    updateUserProfile(updatedData)
       .then((updatedUserData) => {
         setCurrentUser(updatedUserData);
         handleModal("");
