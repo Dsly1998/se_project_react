@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Import CurrentUserContext
 import "./ItemModal.css";
 import closeIcon from "../../images/Closex.svg";
 
-const ItemModal = ({ selectedCard, currentUser, onClose, handleDeleteButton }) => {
+const ItemModal = ({ selectedCard, onClose, handleDeleteButton }) => {
+  const { currentUser } = useContext(CurrentUserContext); // Use currentUser from context
+
   const isOwn = selectedCard && currentUser && selectedCard.owner === currentUser._id;
 
   const itemDeleteButtonClassName = `modal__delete-button ${

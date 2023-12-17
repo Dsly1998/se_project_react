@@ -2,6 +2,18 @@
   position: relative;
 }
 
+.card__like-button{
+  background-color: transparent;
+  border: none;
+}
+
+.item-card__details{
+  display:flex;
+  position: absolute;
+  top: 18px;
+  left:100px;
+}
+
 .card__text {
   background: #fff;
   border-radius: 4px;
@@ -11,11 +23,8 @@
   align-items: center;
   padding: 2px 12px;
   gap: 8px;
-  position: relative;
   width: 82px;
   height: 24px;
-  left: 115px;
-  bottom: 300px;
 }
 
 .card__image {
@@ -31,14 +40,6 @@
 
 .card__image:hover {
   cursor: pointer;
-}
-
-.card__like-Button {
-  border: none;
-  position: absolute;
-  bottom: 300px;
-  left: 220px;
-  background-color: transparent;
 }
 
 .card__like-Button:hover {

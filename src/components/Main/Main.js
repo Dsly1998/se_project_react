@@ -1,17 +1,16 @@
+import React, { useContext } from "react";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
-const Main = ({ weatherTemp, onSelectCard, clothingItems, onCardLike, onCardDislike, currentUser }) => {
+const Main = ({ weatherTemp, onSelectCard, clothingItems, onCardLike, onCardDislike }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const isFahrenheit =
-    currentTemperatureUnit === "F" || currentTemperatureUnit === undefined; // Set to true if CurrentTemperatureUnit is undefined
+ 
+
+  const isFahrenheit = currentTemperatureUnit === "F" || currentTemperatureUnit === undefined;
   const tempInFahrenheit = weatherTemp?.temperature?.["F"] || 999;
-  const temp = isFahrenheit
-    ? tempInFahrenheit
-    : ((tempInFahrenheit - 32) * 5) / 9; // Convert to Celsius if needed
+  const temp = isFahrenheit ? tempInFahrenheit : ((tempInFahrenheit - 32) * 5) / 9;
 
   const getWeatherTypeFahrenheit = (tempF) => {
     if (tempF >= 86) {
@@ -55,14 +54,14 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems, onCardLike, onCardDisl
       </p>
       <section className="main__cards">
         <div className="main__items">
-        {filteredCards.map((item) => (
+          {filteredCards.map((item) => (
             <ItemCard
               key={item._id}
               item={item}
               onSelectCard={onSelectCard}
               onCardLike={onCardLike}
               onCardDislike={onCardDislike}
-              currentUser={currentUser}
+              // currentUser prop is no longer needed
             />
           ))}
         </div>

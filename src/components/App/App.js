@@ -166,7 +166,6 @@ function App() {
                   clothingItems={clothingItems}
                   onCardLike={handleCardLike}
                   onCardDislike={handleCardDislike}
-                  currentUser={currentUser}
                 />
               </Route>
               // In App.js, inside the return statement
@@ -195,7 +194,6 @@ function App() {
             {activeModal === "preview" && (
               <ItemModal
                 selectedCard={selectedCard}
-                currentUser={currentUser}
                 onClose={() => handleModal("")}
                 handleDeleteButton={() => handleModal("confirmation-opened")}
               />

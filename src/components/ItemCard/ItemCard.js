@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Import CurrentUserContext
 import likeButton from "../../images/heart.svg";
 import blackHeart from "../../images/black-heart.svg";
 import "./ItemCard.css";
 
-const ItemCard = ({ item, onSelectCard, onCardLike, onCardDislike, currentUser }) => {
+const ItemCard = ({ item, onSelectCard, onCardLike, onCardDislike }) => {
+  const { currentUser } = useContext(CurrentUserContext); // Use currentUser from context
+
   // Determine if the current user has liked the item
   const isLiked = currentUser && item.likes.includes(currentUser._id);
 
@@ -26,8 +29,9 @@ const ItemCard = ({ item, onSelectCard, onCardLike, onCardDislike, currentUser }
         />
       </div>
       <div className="item-card__details">
+      <div className="card__text">{item.name}</div>
         {currentUser && (
-          <button className="card__like-Button" onClick={handleLikeClick}>
+          <button className="card__like-button" onClick={handleLikeClick}>
             <img 
               src={isLiked ? blackHeart : likeButton} 
               alt={isLiked ? "Liked" : "Not liked"} 
@@ -35,7 +39,6 @@ const ItemCard = ({ item, onSelectCard, onCardLike, onCardDislike, currentUser }
             />
           </button>
         )}
-        <div className="card__text">{item.name}</div>
       </div>
     </div>
   );
