@@ -3,7 +3,8 @@ import "./DeleteModal.css";
 
 const DeleteModal = ({ onClose, card, handleDeleteButton }) => {
   return (
-    <section className="modal" onClick={onClose}>
+    
+    <section className="modal delete" onClick={onClose}>
       <div className="delete__modal">
         <button
           className="delete__modal-button_exit"

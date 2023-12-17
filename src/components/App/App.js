@@ -66,11 +66,15 @@ function App() {
     handleModal("preview");
   };
 
+  const handleCloseModal = () => {
+    handleModal("");
+  };
+
   const onAddItem = (values) => {
     loadItems(values)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
-        handleModal("");
+        handleCloseModal();
       })
       .catch(console.error);
   };
@@ -81,7 +85,7 @@ function App() {
         setClothingItems(
           clothingItems.filter((card) => card._id !== cardElement)
         );
-        handleModal("");
+        handleCloseModal();
       })
       .catch(console.error);
   };
@@ -92,7 +96,7 @@ function App() {
         localStorage.setItem("jwt", data.token);
         setIsLoggedIn(true);
         setCurrentUser({ email, name, avatar });
-        handleModal("");
+        handleCloseModal();
       })
       .catch(console.error);
   };
@@ -102,7 +106,7 @@ function App() {
       .then((data) => {
         localStorage.setItem("jwt", data.token);
         setIsLoggedIn(true);
-        handleModal("");
+        handleCloseModal();
       })
       .catch(console.error);
   };
@@ -112,7 +116,7 @@ function App() {
     updateUserProfile(updatedData)
       .then((updatedUserData) => {
         setCurrentUser(updatedUserData);
-        handleModal("");
+        handleCloseModal();
       })
       .catch(console.error);
   };
@@ -223,7 +227,6 @@ function App() {
               <EditProfileModal
                 isOpen={activeModal === "editProfile"}
                 onClose={() => handleModal("")}
-                currentUser={currentUser}
                 handleSubmit={handleEditProfileSubmit}
               />
             )}

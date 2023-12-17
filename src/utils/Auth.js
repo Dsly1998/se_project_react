@@ -1,16 +1,10 @@
 // auth.js in utils directory
 
+import { checkResponse } from './Api';
+
 export const baseUrl = process.env.NODE_ENV === 'production' 
     ? 'https://api.wtwr.ix.tc'
     : 'http://localhost:3001';
-
-// Function to check the server response
-const checkResponse = (response) => {
-    if (response.ok) {
-        return response.json();
-    }
-    return response.json().then((json) => Promise.reject(json));
-};
 
 // Function to register a new user
 export const register = (userInfo) => {

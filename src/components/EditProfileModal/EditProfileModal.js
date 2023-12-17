@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Adjust this path as necessary
 import "./EditProfileModal.css";
 
-const EditProfileModal = ({ isOpen, onClose, handleSubmit, currentUser }) => {
+const EditProfileModal = ({ isOpen, onClose, handleSubmit }) => {
+  const { currentUser } = useContext(CurrentUserContext); // Consuming currentUser from context
   const [name, setName] = useState("");
   const [avatar, setAvatarUrl] = useState("");
 
-  // Load current user data when the modal opens
   useEffect(() => {
-    if (currentUser) {
+    if (isOpen && currentUser) {
       setName(currentUser.name || "");
       setAvatarUrl(currentUser.avatar || "");
     }

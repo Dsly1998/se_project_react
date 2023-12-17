@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import {CurrentUserContext} from '../../contexts/CurrentUserContext';
-import Logo from "../../images/Logo.svg";
+import logo from "../../images/Logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 
@@ -28,7 +28,7 @@ const Header = ({ onCreateModal, onLogin, onRegister }) => {
       <div className="header__left">
         <div>
           <Link to="/">
-            <img src={Logo} alt="logo" />
+            <img src={logo} alt="logo" />
           </Link>
         </div>
         <div className="header__date">{currentDate}, Florida</div>

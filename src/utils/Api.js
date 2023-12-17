@@ -4,7 +4,7 @@ const getToken = () => {
   return localStorage.getItem("jwt");
 };
 
-const checkResponse = (res) => {
+export const checkResponse = (res) => {
   if (res.ok) {
     return res.json();
   } else {
@@ -41,13 +41,9 @@ export const registerUser = ({ email, password, name, avatar }) => {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password, name, avatar }),
-  }).then((response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    return Promise.reject(`Error: ${response.statusText}`);
-  });
+  }).then(checkResponse); 
 };
+
 
 export const loadItems = ({ name, link, weather }) => {
   const token = getToken();

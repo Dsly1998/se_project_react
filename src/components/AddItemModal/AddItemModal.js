@@ -13,7 +13,6 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem({ name, link, weather });
-    handleCloseModal(); // Optionally close the modal on submission
   };
 
 
@@ -54,6 +53,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       </div>
       <div>
         <div className="modal__radios">
+        <label className="modal__label-radio">
           <input
             className="modal__radio-input"
             type="radio"
@@ -62,9 +62,11 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             name="weather"
             onChange={handleWeatherChange}
           />
-          <label className="modal__label-radio">Hot</label>
+          Hot
+         </label>
         </div>
         <div className="modal__radios">
+        <label className="modal__label-radio">
           <input
             className="modal__radio-input"
             type="radio"
@@ -73,9 +75,10 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             name="weather"
             onChange={handleWeatherChange}
           />
-          <label className="modal__label-radio">Warm</label>
+          Warm</label>
         </div>
         <div>
+        <label className="modal__label-radio">
           <input
             className="modal__radio-input"
             type="radio"
@@ -84,7 +87,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             name="weather"
             onChange={handleWeatherChange}
           />
-          <label className="modal__label-radio">Cold</label>
+          Cold</label>
           <button className="modal__add-button" type="submit">
             Add garment
           </button>
