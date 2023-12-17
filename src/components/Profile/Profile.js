@@ -34,7 +34,6 @@ const Profile = ({
         clothingItems={clothingItems}
         onCardLike={onCardLike}
         onCardDislike={onCardDislike}
-        currentUser={currentUser}
       />
       </div>
     </section>

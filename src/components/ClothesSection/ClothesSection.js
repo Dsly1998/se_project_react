@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext"; // Adjust this path as necessary
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
@@ -6,10 +7,11 @@ const ClothesSection = ({
   onSelectCard,
   handleActiveCreateModal,
   clothingItems,
-  currentUser,
   onCardLike, 
-  onCardDislike // Add currentUser as a prop
+  onCardDislike
 }) => {
+  const { currentUser } = useContext(CurrentUserContext);
+
   // Filter to show only the items added by the current user
   const filteredCards = clothingItems.filter((item) => {
     return currentUser && item.owner === currentUser._id;
@@ -21,7 +23,7 @@ const ClothesSection = ({
         <div className="clothesSection__title">Your items:</div>
         <button
           className="clothesSection__button"
-          type="button" // Corrected button type
+          type="button"
           onClick={handleActiveCreateModal}
         >
           + Add new
@@ -31,13 +33,13 @@ const ClothesSection = ({
         <div className="clothesSection__card-items">
           {filteredCards.map((item) => (
             <ItemCard
-            key={item._id}
-            item={item}
-            onSelectCard={onSelectCard}
-            onCardLike={onCardLike}
-            onCardDislike={onCardDislike}
-            currentUser={currentUser}
-          />
+              key={item._id}
+              item={item}
+              onSelectCard={onSelectCard}
+              onCardLike={onCardLike}
+              onCardDislike={onCardDislike}
+              // currentUser prop is no longer needed
+            />
           ))}
         </div>
       </div>

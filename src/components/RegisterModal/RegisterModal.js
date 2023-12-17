@@ -36,8 +36,8 @@ const RegisterModal = ({ isOpen, handleCloseModal, handleRegistration, openLogin
         required
       />
       </label>
-      Password*
       <label className="Register__modal-label">
+      Password*
       <input
         type="password"
         value={password}
