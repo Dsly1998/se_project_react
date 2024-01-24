@@ -9,13 +9,10 @@ const WeatherCard = ({ day, type, weatherTemp = "", isFahrenheit }) => {
 
   const imageSrcUrl = imageSrc[0].url || "";
 
-  // Convert temperature from Fahrenheit to Celsius if needed
-  const temperature = isFahrenheit ? weatherTemp : ((weatherTemp - 32) * 5) / 9;
-
   return (
     <section className="weather" id="weather">
       <div className="weather__info">
-        {Math.round(temperature)}
+        {Math.round(weatherTemp)}
         {isFahrenheit ? "°F" : "°C"}
       </div>
       <img src={imageSrcUrl} className="weather__bar" alt="weather bar" />

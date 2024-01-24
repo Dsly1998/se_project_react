@@ -4,48 +4,54 @@ import ItemCard from "../ItemCard/ItemCard";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import "./Main.css";
 
-const Main = ({ weatherTemp, onSelectCard, clothingItems, onCardLike, onCardDislike }) => {
+const Main = ({
+  weatherTemp,
+  onSelectCard,
+  clothingItems,
+  onCardLike,
+  onCardDislike,
+}) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
- 
 
-  const isFahrenheit = currentTemperatureUnit === "F" || currentTemperatureUnit === undefined;
+  // Determine if the current temperature unit is Fahrenheit; default to Fahrenheit if undefined
+  const isFahrenheit =
+    currentTemperatureUnit === "F" || currentTemperatureUnit === undefined;
+
+  // Retrieve the temperature in Fahrenheit; default to a placeholder if unavailable
   const tempInFahrenheit = weatherTemp?.temperature?.["F"] || 999;
-  const temp = isFahrenheit ? tempInFahrenheit : ((tempInFahrenheit - 32) * 5) / 9;
 
-  const getWeatherTypeFahrenheit = (tempF) => {
-    if (tempF >= 86) {
-      return "hot";
-    } else if (tempF >= 66 && tempF <= 85) {
-      return "warm";
-    } else if (tempF <= 65) {
-      return "cold";
+  // Convert temperature to Celsius if needed
+  const temp = isFahrenheit
+    ? tempInFahrenheit
+    : ((tempInFahrenheit - 32) * 5) / 9;
+
+  // Function to get weather type based on the temperature
+  const getWeatherType = (temperature) => {
+    if (isFahrenheit) {
+      if (temperature >= 86) return "hot";
+      else if (temperature >= 66) return "warm";
+      else return "cold";
+    } else {
+      if (temperature >= 30) return "hot";
+      else if (temperature >= 19) return "warm";
+      else return "cold";
     }
   };
 
-  const getWeatherTypeCelsius = (tempC) => {
-    if (tempC >= 30) {
-      return "hot";
-    } else if (tempC >= 19 && tempC <= 29) {
-      return "warm";
-    } else if (tempC <= 18) {
-      return "cold";
-    }
-  };
+  // Determine the weather type based on the current temperature
+  const weatherType = getWeatherType(temp);
 
-  const weatherType = isFahrenheit
-    ? getWeatherTypeFahrenheit(tempInFahrenheit)
-    : getWeatherTypeCelsius(temp);
-
-  const filteredCards = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
-  });
+  // Filter clothing items based on the determined weather type
+  const filteredCards = clothingItems.filter(
+    (item) => item.weather.toLowerCase() === weatherType
+  );
 
   return (
     <main className="main">
       <WeatherCard
         day={true}
         type="cloud"
-        weatherTemp={tempInFahrenheit}
+        weatherTemp={Math.round(temp)}
         isFahrenheit={isFahrenheit}
       />
       <p className="main__text">
@@ -61,7 +67,6 @@ const Main = ({ weatherTemp, onSelectCard, clothingItems, onCardLike, onCardDisl
               onSelectCard={onSelectCard}
               onCardLike={onCardLike}
               onCardDislike={onCardDislike}
-              // currentUser prop is no longer needed
             />
           ))}
         </div>

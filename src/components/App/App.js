@@ -35,21 +35,27 @@ function App() {
 
   useEffect(() => {
     fetchItems().then(setClothingItems).catch(console.error);
+
     getForcastWeather()
       .then((data) => {
         setTemp(parseWeatherData(data));
       })
+
       .catch(console.error);
 
     const token = localStorage.getItem("jwt");
+
     if (token) {
       checkToken(token)
         .then((data) => {
           setIsLoggedIn(true);
-          setCurrentUser(data); // Assuming this returns the user object
+
+          setCurrentUser(data);
         })
+
         .catch(() => {
           localStorage.removeItem("jwt");
+
           setIsLoggedIn(false);
         });
     }
@@ -63,6 +69,7 @@ function App() {
 
   const handleSelectedCard = (card) => {
     setSelectedCard(card);
+
     handleModal("preview");
   };
 
@@ -74,8 +81,10 @@ function App() {
     loadItems(values)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
+
         handleCloseModal();
       })
+
       .catch(console.error);
   };
 
@@ -85,8 +94,10 @@ function App() {
         setClothingItems(
           clothingItems.filter((card) => card._id !== cardElement)
         );
+
         handleCloseModal();
       })
+
       .catch(console.error);
   };
 
@@ -94,10 +105,14 @@ function App() {
     register({ email, password, name, avatar })
       .then((data) => {
         localStorage.setItem("jwt", data.token);
+
         setIsLoggedIn(true);
+
         setCurrentUser({ email, name, avatar });
+
         handleCloseModal();
       })
+
       .catch(console.error);
   };
 
@@ -105,19 +120,25 @@ function App() {
     signin({ email, password })
       .then((data) => {
         localStorage.setItem("jwt", data.token);
+
         setIsLoggedIn(true);
+
         handleCloseModal();
       })
+
       .catch(console.error);
   };
+
   const handleOpenEditProfileModal = () => setActiveModal("editProfile");
 
   const handleEditProfileSubmit = (updatedData) => {
     updateUserProfile(updatedData)
       .then((updatedUserData) => {
         setCurrentUser(updatedUserData);
+
         handleCloseModal();
       })
+
       .catch(console.error);
   };
 
@@ -130,6 +151,7 @@ function App() {
           )
         );
       })
+
       .catch(console.error);
   };
 
@@ -142,6 +164,7 @@ function App() {
           )
         );
       })
+
       .catch(console.error);
   };
 
@@ -158,6 +181,7 @@ function App() {
               onLogin={() => handleModal("login")}
               onRegister={() => handleModal("register")}
             />
+
             <Switch>
               <Route exact path="/">
                 <Main
@@ -183,7 +207,9 @@ function App() {
               </ProtectedRoute>
               {/* Additional routes */}
             </Switch>
+
             <Footer />
+
             {activeModal === "create" && (
               <AddItemModal
                 handleCloseModal={() => handleModal("")}
@@ -191,6 +217,7 @@ function App() {
                 onAddItem={onAddItem}
               />
             )}
+
             {activeModal === "preview" && (
               <ItemModal
                 selectedCard={selectedCard}
@@ -198,6 +225,7 @@ function App() {
                 handleDeleteButton={() => handleModal("confirmation-opened")}
               />
             )}
+
             {activeModal === "confirmation-opened" && (
               <DeleteModal
                 onClose={() => handleModal("")}
@@ -205,6 +233,7 @@ function App() {
                 handleDeleteButton={handleDeleteButton}
               />
             )}
+
             {activeModal === "register" && (
               <RegisterModal
                 isOpen={activeModal === "register"}
@@ -213,6 +242,7 @@ function App() {
                 openLoginModal={() => handleModal("login")}
               />
             )}
+
             {activeModal === "login" && (
               <LoginModal
                 isOpen={activeModal === "login"}
@@ -221,6 +251,7 @@ function App() {
                 openRegisterModal={() => handleModal("register")}
               />
             )}
+
             {activeModal === "editProfile" && (
               <EditProfileModal
                 isOpen={activeModal === "editProfile"}
