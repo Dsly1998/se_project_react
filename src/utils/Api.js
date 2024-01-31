@@ -1,4 +1,8 @@
-const baseUrl = 'http://localhost:3001';
+const baseUrl = process.env.NODE_ENV === 'production' 
+  ? 'deployed-backend-url'
+  : 'http://localhost:3001';
+
+// deployed-backend-url is the URL that points to your deployed back end
 
 const getToken = () => {
   return localStorage.getItem("jwt");

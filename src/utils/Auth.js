@@ -2,9 +2,11 @@
 
 import { checkResponse } from './Api';
 
-export const baseUrl = process.env.NODE_ENV === 'production' 
-    ? 'https://api.wtwr.ix.tc'
-    : 'http://localhost:3001';
+const baseUrl = process.env.NODE_ENV === 'production' 
+  ? 'deployed-backend-url'
+  : 'http://localhost:3001';
+
+// deployed-backend-url is the URL that points to your deployed back end
 
 // Function to register a new user
 export const register = (userInfo) => {
