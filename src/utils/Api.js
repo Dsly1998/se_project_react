@@ -28,9 +28,9 @@ export const fetchItems = () => {
   return getItems;
 };
 
-export const removeItems = ( selectedCard) => {
+export const removeItems = ( selectedCard, itemId ) => {
   const token = getToken();
-  const deleteItems = fetch(`${baseUrl}/items/${selectedCard}`, {
+  const deleteItems = fetch(`${baseUrl}/items/${selectedCard}/${itemId}`, {
     method: 'DELETE',
     headers: {
       "Content-Type": "application/json",
