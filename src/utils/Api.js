@@ -1,6 +1,7 @@
-const baseUrl = process.env.NODE_ENV === 'production' 
-  ? 'TTwtwr.crabdance.com'
-  : 'http://localhost:3001';
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "TTwtwr.crabdance.com"
+    : "http://localhost:3001";
 
 // deployed-backend-url is the URL that points to your deployed back end
 
@@ -28,10 +29,10 @@ export const fetchItems = () => {
   return getItems;
 };
 
-export const removeItems = ( selectedCard, itemId ) => {
+export const removeItems = (selectedCard, id) => {
   const token = getToken();
-  const deleteItems = fetch(`${baseUrl}/items/${selectedCard}/${itemId}`, {
-    method: 'DELETE',
+  const deleteItems = fetch(`${baseUrl}/items/${selectedCard}/${id}`, {
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
@@ -41,13 +42,12 @@ export const removeItems = ( selectedCard, itemId ) => {
 };
 
 export const registerUser = ({ email, password, name, avatar }) => {
-  return fetch('/signup', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  return fetch("/signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password, name, avatar }),
-  }).then(checkResponse); 
+  }).then(checkResponse);
 };
-
 
 export const loadItems = ({ name, link, weather }) => {
   const token = getToken();
