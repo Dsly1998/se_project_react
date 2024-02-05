@@ -28,7 +28,7 @@ export const fetchItems = () => {
   return getItems;
 };
 
-export const removeItems = (selectedCard) => {
+export const removeItems = ( selectedCard) => {
   const token = getToken();
   const deleteItems = fetch(`${baseUrl}/items/${selectedCard}`, {
     method: 'DELETE',
@@ -57,7 +57,7 @@ export const loadItems = ({ name, link, weather }) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ id: 99, name, imageUrl: link, weather }),
+    body: JSON.stringify({ name, imageUrl: link, weather }),
   }).then(checkResponse);
   return postItems;
 };
