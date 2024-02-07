@@ -103,19 +103,20 @@ function App() {
 
   const handleRegistration = (email, password, name, avatar) => {
     register({ email, password, name, avatar })
+      .then(() => {
+        // After successful registration, attempt to sign in
+        return signin({ email, password });
+      })
       .then((data) => {
+        // Handle successful sign in
         localStorage.setItem("jwt", data.token);
-
         setIsLoggedIn(true);
-
         setCurrentUser({ email, name, avatar });
-
         handleCloseModal();
       })
-
-      .catch(console.error);
+      .catch(console.error); // Handle any errors in the registration or sign-in process
   };
-
+  
   const handleLogin = (email, password) => {
     signin({ email, password })
       .then((data) => {
