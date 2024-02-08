@@ -42,12 +42,13 @@ export const removeItems = (selectedCard) => {
 };
 
 export const registerUser = ({ email, password, name, avatar }) => {
-  return fetch("/signup", {
+  return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password, name, avatar }),
   }).then(checkResponse);
 };
+
 
 export const loadItems = ({ name, link, weather }) => {
   const token = getToken();

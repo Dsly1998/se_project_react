@@ -4,7 +4,7 @@ import { checkResponse } from "./Api";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "TTwtwr.crabdance.com"
+    ? "api.TTwtwr.crabdance.com"
     : "http://localhost:3001";
 
 // Function to register a new user
