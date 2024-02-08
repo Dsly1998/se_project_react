@@ -2,7 +2,7 @@
   "name": "se_project_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://TTwtwr.crabdance.com",
+  "homepage": "http://TTwtwr.ignorelist.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r ./build/* krave83@TTwtwr.crabdance.com:/home/krave83/frontend"
+    "deploy": "npm run build && scp -r ./build/* krave83@TTwtwr.ignorelist.com:/home/krave83/frontend"
   },
   "eslintConfig": {
     "extends": [

@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://api.ttwtwr.crabdance.com"
+    ? "https://api.ttwtwr.ignorelist.com"
     : "http://localhost:3001";
 
 // deployed-backend-url is the URL that points to your deployed back end
