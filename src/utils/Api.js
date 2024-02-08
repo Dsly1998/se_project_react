@@ -49,7 +49,6 @@ export const registerUser = ({ email, password, name, avatar }) => {
   }).then(checkResponse);
 };
 
-
 export const loadItems = ({ name, link, weather }) => {
   const token = getToken();
   const postItems = fetch(`${baseUrl}/items`, {
