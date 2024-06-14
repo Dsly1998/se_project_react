@@ -4,9 +4,9 @@ https://github.com/Dsly1998/se_project_express.git
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## WTWR react app
 
-In the project directory, you can run:
+I used React to develop this app based on the Figma design provided to me. This application simplifies choosing your clothing based on weather specifications. It's a full-stack project; feel free to explore the backend in my repository.
 
 ### `npm start`
 
